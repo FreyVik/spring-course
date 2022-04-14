@@ -3,6 +3,7 @@ package com.freyvik.springcourse.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -17,6 +18,9 @@ import com.freyvik.springcourse.models.Usuario;
 @RequestMapping("/app")
 public class HomeController {
 
+	@Value("${listar.title}")
+	private String listarTitle;	
+	
 	@GetMapping("/index")
 	public String index(ModelMap model) {
 		model.addAttribute("titulo", "Nuevo titulo");
@@ -48,6 +52,7 @@ public class HomeController {
 	
 	@GetMapping("/listar")
 	public String listar(Model model) {
+		model.addAttribute("title", listarTitle);
 		
 		return "listar";
 	}
