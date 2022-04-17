@@ -5,10 +5,16 @@ import javax.validation.constraints.NotEmpty;
 public class Usuario {
 
 	@NotEmpty
-	private String username, password, email;
+	private String username;
+	@NotEmpty
+	private String password;
+	@NotEmpty
+	private String email;
 	
 	@NotEmpty
-	private String nombre, apellido;
+	private String nombre;
+	@NotEmpty
+	private String apellido;
 	
 	private String identificador;
 	
